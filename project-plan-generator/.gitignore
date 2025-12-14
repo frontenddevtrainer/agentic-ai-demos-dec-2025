@@ -42,7 +42,6 @@ ENV/
 htmlcov/
 
 # Output
-outputs/
 *.json
 *.md
 !README.md

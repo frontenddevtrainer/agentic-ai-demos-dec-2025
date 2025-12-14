@@ -1,0 +1,77 @@
+Privacy Policy
+Last updated: [Date]
+1. Introduction
+Welcome to [App Name] (“we”, “our”, “us”). We value your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, disclose, and protect your information when you use our mobile application, website, and related services (collectively, the “App”).
+We comply with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.
+By using our App, you agree to this Privacy Policy. If you do not agree, please stop using the App.
+2. Who We Are
+Data Controller: [Company Name or Individual Name]
+Registered Address: [Full Address]
+Email: [Contact Email]
+Phone: [Optional]
+ICO Registration Number: [If applicable]
+3. Data We Collect
+We may collect and process the following categories of personal data:
+a. Information You Provide
+Account details (name, email, password)
+Profile information (photo, preferences, etc.)
+Contact details (phone number, address)
+Payment information (if purchases are made)
+Communications (messages, feedback, support requests)
+b. Information We Collect Automatically
+Device information (model, OS version, unique identifiers)
+Usage data (how you interact with the App)
+Log data (IP address, access times, pages viewed)
+Cookies or similar technologies (for analytics or personalisation)
+c. Information from Third Parties
+Analytics or advertising partners (e.g., Google Analytics, Meta)
+Social media accounts (if you log in through them)
+4. How We Use Your Data
+We use your data to:
+Provide, operate, and maintain the App
+Create and manage your account
+Process transactions and send receipts
+Improve user experience and App functionality
+Send updates, service notices, or promotional materials (with your consent)
+Detect and prevent fraud or misuse
+Comply with legal obligations
+5. Legal Bases for Processing
+We process your data only when we have a lawful basis under UK GDPR:
+Purpose	Legal Basis
+To provide the App and services	Contract
+To improve our App and services	Legitimate interest
+To send marketing messages	Consent
+To comply with legal obligations	Legal obligation
+6. Data Sharing and Disclosure
+We may share your personal data with:
+Service providers (e.g., hosting, analytics, payment processors)
+Business partners (only when necessary for services you use)
+Law enforcement or regulators (where required by law)
+Successors (if we sell or transfer our business)
+We will never sell your personal data.
+7. International Data Transfers
+Your data may be processed outside the UK. Where this occurs, we ensure appropriate safeguards are in place, such as UK adequacy regulations or standard contractual clauses.
+8. Data Retention
+We retain your data only as long as necessary for the purposes outlined above or as required by law. When no longer needed, data is securely deleted or anonymised.
+9. Your Rights
+Under UK data protection law, you have the right to:
+Access your personal data
+Correct or update your data
+Request deletion of your data
+Object to or restrict processing
+Withdraw consent at any time
+Data portability (request a copy in a structured format)
+Lodge a complaint with the Information Commissioner’s Office (ICO):
+https://ico.org.uk/make-a-complaint/
+To exercise your rights, contact us at [Contact Email].
+10. Children’s Privacy
+Our App is not intended for children under 13 (or 16 where applicable). We do not knowingly collect data from children. If you believe we have done so, contact us and we will delete it promptly.
+11. Security
+We implement appropriate technical and organisational measures to protect your data from unauthorised access, disclosure, alteration, or destruction.
+12. Changes to This Policy
+We may update this Privacy Policy from time to time. The latest version will always be posted within the App or on our website. Your continued use of the App after changes means you accept the updated policy.
+13. Contact Us
+If you have questions about this Privacy Policy, please contact us at:
+[Company Name]
+Email: [Contact Email]
+Address: [Address]
