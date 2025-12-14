@@ -1,0 +1,17 @@
+Create a task management app for remote teams
+
+The app should support:
+- Creating and organizing tasks in projects and boards
+- Assigning tasks to team members with due dates
+- Real-time collaboration and updates
+- File attachments and comments on tasks
+- Task status tracking (todo, in progress, done, blocked)
+- Calendar view and Kanban board view
+- Time tracking for tasks
+- Team activity feed and notifications
+- Search and filtering across all tasks
+- Integration with Slack and email
+- Mobile apps for iOS and Android
+- Guest access for external collaborators
+
+The app should be fast, reliable, work offline with sync, and scale to support teams of 100+ members.

@@ -1,0 +1,15 @@
+Create an e-commerce platform for handmade crafts
+
+The platform should allow:
+- Sellers to create profiles and list their handmade products
+- Buyers to browse products by category, search, and filter
+- Shopping cart and checkout with multiple payment options
+- Order tracking and history
+- Product reviews and ratings
+- Seller messaging for custom orders
+- Wishlist and favorites
+- Email notifications for orders and shipping
+- Admin dashboard for managing sellers and products
+- Mobile-responsive design
+
+The platform should be secure (PCI compliance for payments), scalable to handle thousands of sellers, and provide a great user experience on all devices.

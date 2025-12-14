@@ -1,0 +1,15 @@
+Create a messaging app with sharing
+
+The app should allow users to:
+- Send and receive messages in real-time
+- Create 1:1 and group conversations
+- Share content from other apps into the messaging app
+- Share messages and media from the app to other apps
+- Forward messages within the app
+- Send photos, videos, and files
+- Search through message history
+- Receive notifications for new messages
+- Block and report users for safety
+- Have user profiles with avatars and names
+
+The app should be secure, performant, and accessible to all users.
