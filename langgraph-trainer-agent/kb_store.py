@@ -16,6 +16,23 @@ class KBIngestConfig:
     chunk_overlap: int
 
 
+# Add Documents
+def load_kb_documents(kb_dir: str) -> list[Document]:
+    docs: list[Document] = []
+    base = Path(kb_dir)
+    if not base.exists():
+        raise RuntimeError(f"KB directory not found: {kb_dir}")
+
+    for path in base.rglob("*"):
+        if not path.is_file():
+            continue
+        if path.suffix.lower() not in {".md", ".txt"}:
+            continue
+        text = path.read_text(encoding="utf-8")
+        docs.append(Document(page_content=text, metadata={"source": str(path)}))
+    return docs
+
+# Create Vector Store
 def build_vectorstore(
     documents: Iterable[Document],
     embeddings,
@@ -33,3 +50,14 @@ def build_vectorstore(
     Path(config.vectorstore_dir).mkdir(parents=True, exist_ok=True)
     vectorstore.save_local(config.vectorstore_dir)
     return vectorstore
+
+# Read Vector DB
+def load_vectorstore(vectorstore_dir: str, embeddings) -> FAISS:
+    path = Path(vectorstore_dir)
+    if not path.exists():
+        raise RuntimeError(
+            "Vectorstore not found. Run ingest_kb.py to build it before starting the bot."
+        )
+    return FAISS.load_local(
+        vectorstore_dir, embeddings, allow_dangerous_deserialization=True
+    )
