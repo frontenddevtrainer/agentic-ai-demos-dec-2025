@@ -43,6 +43,7 @@ def build_vectorstore(
         chunk_overlap=config.chunk_overlap,
     )
     chunks = splitter.split_documents(list(documents))
+
     if not chunks:
         raise RuntimeError("No KB chunks found; add documents to the KB directory")
 

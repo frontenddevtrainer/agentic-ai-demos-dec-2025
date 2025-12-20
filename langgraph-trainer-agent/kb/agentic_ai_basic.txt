@@ -29,4 +29,345 @@ When training agentic AI practitioners:
 
 - Emphasize data quality for KB documents
 - Teach error analysis and observability
+- Make the system safe by default (guardrails + topic filters)# AgenticAI Trainer: Core Notes
+
+Agentic AI systems combine planning, tool-use, memory, and feedback loops to solve tasks. A practical agent has:
+
+- A goal-driven planner (decomposition into steps)
+- Tool execution with safety checks and retries
+- Memory (short-term for conversation state; long-term for knowledge)
+- Evaluation (self-critique, tests, or external metrics)
+
+## LangGraph fundamentals
+
+LangGraph models agents as state machines. You define a state, nodes that transform state, and edges that route between nodes. This allows:
+
+- Deterministic control flow
+- Conditional routing (e.g., only retrieve docs when needed)
+- Iteration loops for planning and tool use
+
+## RAG in agentic systems
+
+Retrieval-Augmented Generation (RAG) adds knowledge from a vector store. In agentic flows, use RAG to:
+
+- Ground answers with verified docs
+- Provide citations and reduce hallucinations
+- Update knowledge by re-ingesting documents
+
+## Trainer guidelines
+
+When training agentic AI practitioners:
+
+- Emphasize data quality for KB documents
+- Teach error analysis and observability
+- Make the system safe by default (guardrails + topic filters)# AgenticAI Trainer: Core Notes
+
+Agentic AI systems combine planning, tool-use, memory, and feedback loops to solve tasks. A practical agent has:
+
+- A goal-driven planner (decomposition into steps)
+- Tool execution with safety checks and retries
+- Memory (short-term for conversation state; long-term for knowledge)
+- Evaluation (self-critique, tests, or external metrics)
+
+## LangGraph fundamentals
+
+LangGraph models agents as state machines. You define a state, nodes that transform state, and edges that route between nodes. This allows:
+
+- Deterministic control flow
+- Conditional routing (e.g., only retrieve docs when needed)
+- Iteration loops for planning and tool use
+
+## RAG in agentic systems
+
+Retrieval-Augmented Generation (RAG) adds knowledge from a vector store. In agentic flows, use RAG to:
+
+- Ground answers with verified docs
+- Provide citations and reduce hallucinations
+- Update knowledge by re-ingesting documents
+
+## Trainer guidelines
+
+When training agentic AI practitioners:
+
+- Emphasize data quality for KB documents
+- Teach error analysis and observability
+- Make the system safe by default (guardrails + topic filters)# AgenticAI Trainer: Core Notes
+
+Agentic AI systems combine planning, tool-use, memory, and feedback loops to solve tasks. A practical agent has:
+
+- A goal-driven planner (decomposition into steps)
+- Tool execution with safety checks and retries
+- Memory (short-term for conversation state; long-term for knowledge)
+- Evaluation (self-critique, tests, or external metrics)
+
+## LangGraph fundamentals
+
+LangGraph models agents as state machines. You define a state, nodes that transform state, and edges that route between nodes. This allows:
+
+- Deterministic control flow
+- Conditional routing (e.g., only retrieve docs when needed)
+- Iteration loops for planning and tool use
+
+## RAG in agentic systems
+
+Retrieval-Augmented Generation (RAG) adds knowledge from a vector store. In agentic flows, use RAG to:
+
+- Ground answers with verified docs
+- Provide citations and reduce hallucinations
+- Update knowledge by re-ingesting documents
+
+## Trainer guidelines
+
+When training agentic AI practitioners:
+
+- Emphasize data quality for KB documents
+- Teach error analysis and observability
+- Make the system safe by default (guardrails + topic filters)# AgenticAI Trainer: Core Notes
+
+Agentic AI systems combine planning, tool-use, memory, and feedback loops to solve tasks. A practical agent has:
+
+- A goal-driven planner (decomposition into steps)
+- Tool execution with safety checks and retries
+- Memory (short-term for conversation state; long-term for knowledge)
+- Evaluation (self-critique, tests, or external metrics)
+
+## LangGraph fundamentals
+
+LangGraph models agents as state machines. You define a state, nodes that transform state, and edges that route between nodes. This allows:
+
+- Deterministic control flow
+- Conditional routing (e.g., only retrieve docs when needed)
+- Iteration loops for planning and tool use
+
+## RAG in agentic systems
+
+Retrieval-Augmented Generation (RAG) adds knowledge from a vector store. In agentic flows, use RAG to:
+
+- Ground answers with verified docs
+- Provide citations and reduce hallucinations
+- Update knowledge by re-ingesting documents
+
+## Trainer guidelines
+
+When training agentic AI practitioners:
+
+- Emphasize data quality for KB documents
+- Teach error analysis and observability
+- Make the system safe by default (guardrails + topic filters)# AgenticAI Trainer: Core Notes
+
+Agentic AI systems combine planning, tool-use, memory, and feedback loops to solve tasks. A practical agent has:
+
+- A goal-driven planner (decomposition into steps)
+- Tool execution with safety checks and retries
+- Memory (short-term for conversation state; long-term for knowledge)
+- Evaluation (self-critique, tests, or external metrics)
+
+## LangGraph fundamentals
+
+LangGraph models agents as state machines. You define a state, nodes that transform state, and edges that route between nodes. This allows:
+
+- Deterministic control flow
+- Conditional routing (e.g., only retrieve docs when needed)
+- Iteration loops for planning and tool use
+
+## RAG in agentic systems
+
+Retrieval-Augmented Generation (RAG) adds knowledge from a vector store. In agentic flows, use RAG to:
+
+- Ground answers with verified docs
+- Provide citations and reduce hallucinations
+- Update knowledge by re-ingesting documents
+
+## Trainer guidelines
+
+When training agentic AI practitioners:
+
+- Emphasize data quality for KB documents
+- Teach error analysis and observability
+- Make the system safe by default (guardrails + topic filters)# AgenticAI Trainer: Core Notes
+
+Agentic AI systems combine planning, tool-use, memory, and feedback loops to solve tasks. A practical agent has:
+
+- A goal-driven planner (decomposition into steps)
+- Tool execution with safety checks and retries
+- Memory (short-term for conversation state; long-term for knowledge)
+- Evaluation (self-critique, tests, or external metrics)
+
+## LangGraph fundamentals
+
+LangGraph models agents as state machines. You define a state, nodes that transform state, and edges that route between nodes. This allows:
+
+- Deterministic control flow
+- Conditional routing (e.g., only retrieve docs when needed)
+- Iteration loops for planning and tool use
+
+## RAG in agentic systems
+
+Retrieval-Augmented Generation (RAG) adds knowledge from a vector store. In agentic flows, use RAG to:
+
+- Ground answers with verified docs
+- Provide citations and reduce hallucinations
+- Update knowledge by re-ingesting documents
+
+## Trainer guidelines
+
+When training agentic AI practitioners:
+
+- Emphasize data quality for KB documents
+- Teach error analysis and observability
+- Make the system safe by default (guardrails + topic filters)# AgenticAI Trainer: Core Notes
+
+Agentic AI systems combine planning, tool-use, memory, and feedback loops to solve tasks. A practical agent has:
+
+- A goal-driven planner (decomposition into steps)
+- Tool execution with safety checks and retries
+- Memory (short-term for conversation state; long-term for knowledge)
+- Evaluation (self-critique, tests, or external metrics)
+
+## LangGraph fundamentals
+
+LangGraph models agents as state machines. You define a state, nodes that transform state, and edges that route between nodes. This allows:
+
+- Deterministic control flow
+- Conditional routing (e.g., only retrieve docs when needed)
+- Iteration loops for planning and tool use
+
+## RAG in agentic systems
+
+Retrieval-Augmented Generation (RAG) adds knowledge from a vector store. In agentic flows, use RAG to:
+
+- Ground answers with verified docs
+- Provide citations and reduce hallucinations
+- Update knowledge by re-ingesting documents
+
+## Trainer guidelines
+
+When training agentic AI practitioners:
+
+- Emphasize data quality for KB documents
+- Teach error analysis and observability
+- Make the system safe by default (guardrails + topic filters)# AgenticAI Trainer: Core Notes
+
+Agentic AI systems combine planning, tool-use, memory, and feedback loops to solve tasks. A practical agent has:
+
+- A goal-driven planner (decomposition into steps)
+- Tool execution with safety checks and retries
+- Memory (short-term for conversation state; long-term for knowledge)
+- Evaluation (self-critique, tests, or external metrics)
+
+## LangGraph fundamentals
+
+LangGraph models agents as state machines. You define a state, nodes that transform state, and edges that route between nodes. This allows:
+
+- Deterministic control flow
+- Conditional routing (e.g., only retrieve docs when needed)
+- Iteration loops for planning and tool use
+
+## RAG in agentic systems
+
+Retrieval-Augmented Generation (RAG) adds knowledge from a vector store. In agentic flows, use RAG to:
+
+- Ground answers with verified docs
+- Provide citations and reduce hallucinations
+- Update knowledge by re-ingesting documents
+
+## Trainer guidelines
+
+When training agentic AI practitioners:
+
+- Emphasize data quality for KB documents
+- Teach error analysis and observability
+- Make the system safe by default (guardrails + topic filters)# AgenticAI Trainer: Core Notes
+
+Agentic AI systems combine planning, tool-use, memory, and feedback loops to solve tasks. A practical agent has:
+
+- A goal-driven planner (decomposition into steps)
+- Tool execution with safety checks and retries
+- Memory (short-term for conversation state; long-term for knowledge)
+- Evaluation (self-critique, tests, or external metrics)
+
+## LangGraph fundamentals
+
+LangGraph models agents as state machines. You define a state, nodes that transform state, and edges that route between nodes. This allows:
+
+- Deterministic control flow
+- Conditional routing (e.g., only retrieve docs when needed)
+- Iteration loops for planning and tool use
+
+## RAG in agentic systems
+
+Retrieval-Augmented Generation (RAG) adds knowledge from a vector store. In agentic flows, use RAG to:
+
+- Ground answers with verified docs
+- Provide citations and reduce hallucinations
+- Update knowledge by re-ingesting documents
+
+## Trainer guidelines
+
+When training agentic AI practitioners:
+
+- Emphasize data quality for KB documents
+- Teach error analysis and observability
+- Make the system safe by default (guardrails + topic filters)# AgenticAI Trainer: Core Notes
+
+Agentic AI systems combine planning, tool-use, memory, and feedback loops to solve tasks. A practical agent has:
+
+- A goal-driven planner (decomposition into steps)
+- Tool execution with safety checks and retries
+- Memory (short-term for conversation state; long-term for knowledge)
+- Evaluation (self-critique, tests, or external metrics)
+
+## LangGraph fundamentals
+
+LangGraph models agents as state machines. You define a state, nodes that transform state, and edges that route between nodes. This allows:
+
+- Deterministic control flow
+- Conditional routing (e.g., only retrieve docs when needed)
+- Iteration loops for planning and tool use
+
+## RAG in agentic systems
+
+Retrieval-Augmented Generation (RAG) adds knowledge from a vector store. In agentic flows, use RAG to:
+
+- Ground answers with verified docs
+- Provide citations and reduce hallucinations
+- Update knowledge by re-ingesting documents
+
+## Trainer guidelines
+
+When training agentic AI practitioners:
+
+- Emphasize data quality for KB documents
+- Teach error analysis and observability
+- Make the system safe by default (guardrails + topic filters)# AgenticAI Trainer: Core Notes
+
+Agentic AI systems combine planning, tool-use, memory, and feedback loops to solve tasks. A practical agent has:
+
+- A goal-driven planner (decomposition into steps)
+- Tool execution with safety checks and retries
+- Memory (short-term for conversation state; long-term for knowledge)
+- Evaluation (self-critique, tests, or external metrics)
+
+## LangGraph fundamentals
+
+LangGraph models agents as state machines. You define a state, nodes that transform state, and edges that route between nodes. This allows:
+
+- Deterministic control flow
+- Conditional routing (e.g., only retrieve docs when needed)
+- Iteration loops for planning and tool use
+
+## RAG in agentic systems
+
+Retrieval-Augmented Generation (RAG) adds knowledge from a vector store. In agentic flows, use RAG to:
+
+- Ground answers with verified docs
+- Provide citations and reduce hallucinations
+- Update knowledge by re-ingesting documents
+
+## Trainer guidelines
+
+When training agentic AI practitioners:
+
+- Emphasize data quality for KB documents
+- Teach error analysis and observability
 - Make the system safe by default (guardrails + topic filters)
