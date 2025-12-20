@@ -1,0 +1,18 @@
+# Python Q&A Notes
+
+## Virtual environments
+
+- Create a venv: `python -m venv .venv`
+- Activate (macOS/Linux): `source .venv/bin/activate`
+- Install deps: `pip install -r requirements.txt`
+
+## Common errors
+
+- `ModuleNotFoundError`: package not installed in the active environment
+- `SyntaxError`: check indentation and missing colons
+
+## Helpful patterns
+
+- Use list comprehensions for concise transforms
+- Prefer `pathlib.Path` for filesystem paths
+- Add type hints for readability and tooling
