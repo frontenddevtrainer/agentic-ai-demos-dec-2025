@@ -5,6 +5,8 @@ import os
 import re
 import ssl
 import operator
+import urllib.error
+
 from html.parser import HTMLParser
 from typing import Any, Annotated, TypedDict
 from urllib.parse import parse_qs, unquote, urlencode, urlparse
@@ -16,6 +18,9 @@ from langchain_core.tools import tool
 from langchain_openai import ChatOpenAI
 from langgraph.graph import END, StateGraph
 from langgraph.prebuilt.tool_node import ToolNode
+
+
+from datetime import datetime, timezone
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -32,6 +37,31 @@ MCP_VERIFY_SSL = os.getenv("MCP_VERIFY_SSL", "false").lower() in {"1", "true", "
 class NflAgentState(TypedDict, total=False):
     messages: Annotated[list, operator.add]
     final_answer: str
+
+class _TextExtractor(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self._texts: list[str] = []
+        self._ignore_depth = 0
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag in {"script", "style", "noscript"}:
+            self._ignore_depth += 1
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag in {"script", "style", "noscript"} and self._ignore_depth:
+            self._ignore_depth -= 1
+
+    def handle_data(self, data: str) -> None:
+        if self._ignore_depth:
+            return
+        text = data.strip()
+        if text:
+            self._texts.append(text)
+
+    def get_text(self) -> str:
+        return " ".join(self._texts)
+
 
 class _DuckDuckGoParser(HTMLParser):
     def __init__(self, max_results: int) -> None:
@@ -129,6 +159,91 @@ def web_search(query: str, max_results: int = DEFAULT_SEARCH_RESULTS) -> str:
     print(payload)
     return json.dumps(payload, ensure_ascii=True)
 
+
+@tool("web_scrape")
+def web_scrape(url: str, max_chars: int = DEFAULT_SCRAPE_CHARS) -> str:
+    """
+    Scrapes a webpage and returns the extracted text in JSON format.
+
+    Parameters:
+    - url (str): The URL of the webpage to scrape.
+    - max_chars (int, optional): The maximum number of characters to extract from the webpage's text.
+      If the extracted text exceeds this length, it will be truncated. Default is `DEFAULT_SCRAPE_CHARS`.
+
+    Returns:
+    - str: A JSON-encoded string containing the following:
+        - "url": The URL of the page that was scraped.
+        - "content": The extracted text from the webpage, truncated to the specified `max_chars` length.
+
+    This function fetches the content of the given URL, extracts the text from the HTML, and cleans it by
+    removing extra whitespace. If the text length exceeds the specified `max_chars`, it will be truncated
+    with "..." appended to indicate more content. If the page is blocked (HTTP 403 error), a message is returned.
+    """
+    try:
+        html = _fetch_url(url, timeout=20)
+        parser = _TextExtractor()
+        parser.feed(html)
+        text = re.sub(r"\s+", " ", parser.get_text()).strip()
+
+        # Truncate text if it exceeds the specified max_chars
+        if len(text) > max_chars:
+            text = text[:max_chars].rstrip() + "..."
+
+        payload = {"url": url, "content": text}
+        return json.dumps(payload, ensure_ascii=True)
+
+    except urllib.error.HTTPError as e:
+        if e.code == 403:
+            # Handle HTTP 403: Forbidden
+            error_message = {
+                "error": "HTTP Error 403: Forbidden",
+                "message": "The website blocked your request. Please ensure the page is publicly accessible and try again."
+            }
+            return json.dumps(error_message, ensure_ascii=True)
+
+    except Exception as e:
+        # Handle other errors like network issues, etc.
+        error_message = {
+            "error": str(e),
+            "message": "An error occurred while scraping the webpage."
+        }
+        return json.dumps(error_message, ensure_ascii=True)
+
+
+
+@tool("current_datetime")
+def current_datetime(tz: str = "UTC", iso: bool = True) -> str:
+    """
+    Returns the current date and time in the specified timezone.
+
+    Parameters:
+    - tz (str): The timezone for the current time. Options are 'UTC' or 'local'. Default is 'UTC'.
+    - iso (bool): If True, returns the datetime in ISO 8601 format. If False, returns the datetime in a more human-readable format. Default is True.
+
+    Returns:
+    - str: A JSON-encoded string with the current date and time, including the timezone.
+      The JSON includes the following keys:
+      - "timezone": The name of the timezone (e.g., "UTC" or the local timezone).
+      - "datetime": The full datetime in the specified format (ISO or custom).
+      - "date": The current date in ISO format (YYYY-MM-DD).
+      - "time": The current time in HH:MM:SS format.
+    """
+    if tz.lower() == "local":
+        now = datetime.now().astimezone()
+        tz_name = str(now.tzinfo)
+    else:
+        now = datetime.now(timezone.utc)
+        tz_name = "UTC"
+
+    payload = {
+        "timezone": tz_name,
+        "datetime": now.isoformat() if iso else now.strftime("%Y-%m-%d %H:%M:%S"),
+        "date": now.date().isoformat(),
+        "time": now.time().strftime("%H:%M:%S"),
+    }
+
+    return json.dumps(payload, ensure_ascii=True)
+
 def build_agent() -> any:
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
@@ -142,16 +257,45 @@ def build_agent() -> any:
 
     tools = [
         web_search,
+        web_scrape,
+        current_datetime
     ]
 
     model_with_tools = model.bind_tools(tools)
 
     system_prompt = (
-        "You are an NFL news analyst. Decide which tools to use (if any) to answer the user. "
-        "Use web search for fresh NFL news, scrape only when you need details from a specific source, "
-        "use MCP tools if they are relevant or available, and use Python only for calculations or "
-        "lightweight analysis. Do not call tools unnecessarily. Summarize key events, then provide "
-        "a short takeaways section and a Sources line with URLs."
+        """
+            You are an NFL news and statistics analyst.
+
+            You MUST follow this workflow exactly:
+
+            1. Always call the current_datetime tool first to determine today’s date.
+            2. If the question requires factual, ranked, or numeric information
+            (such as leaders, stats, standings, injuries, or depth charts),
+            you MUST call web_search to find authoritative sources.
+            3. If web_search is called, you MUST extract facts from at least one
+            authoritative source by calling web_scrape before answering.
+            Never answer using links alone.
+            4. Prefer official or authoritative sources in this order:
+            - Pro-Football-Reference
+            - NFL.com
+            - ESPN
+            - StatMuse
+            5. Only provide a final answer AFTER factual data has been extracted
+            via web_scrape.
+            6. If scraping fails, clearly state that the data could not be retrieved
+            and explain why.
+
+            Answer guidelines:
+            - Be concise and factual.
+            - State the date the information applies to.
+            - Summarize key findings in bullet points when possible.
+            - Include a final “Sources” line listing scraped URLs.
+
+            Do NOT guess, infer, or defer the user to external links.
+            Do NOT provide an answer without scraping when facts are required.
+
+        """
     )
 
     def agent_node(state: NflAgentState) -> NflAgentState:
@@ -200,7 +344,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "question",
         nargs="?",
-        default="What matches are played by PHILADELPHIA EAGLES in NFL this year",
+        default="Who is the passing leader?",
         help="Question for the multi-agent system.",
     )
     args = parser.parse_args()
